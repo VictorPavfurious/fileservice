@@ -1,6 +1,7 @@
 package com.review.viktor.fileservice.domain.service;
 
 import com.review.viktor.fileservice.domain.PopularWordService;
+import com.review.viktor.fileservice.domain.dto.RootRepo;
 import com.review.viktor.fileservice.domain.response.PopularWordDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ParameterizedTypeReference;
@@ -31,12 +32,12 @@ public class PopularWordServiceImpl implements PopularWordService {
         final HttpEntity<String> entity = new HttpEntity<>(headers);
         String gitHubApiURL = buildAPIUrlToGitHub(url);
 
-        ResponseEntity<List<Map<String, Object>>> reposResponse = restTemplate.exchange(
+        ResponseEntity<List<RootRepo>> reposResponse = restTemplate.exchange(
                 gitHubApiURL, HttpMethod.GET, entity, new ParameterizedTypeReference<>() {}
         );
 
-        for (Map<String, Object> repo : Objects.requireNonNull(reposResponse.getBody())) {
-            String contentFullURl = (String) repo.get("contents_url");
+        for (RootRepo repo : Objects.requireNonNull(reposResponse.getBody())) {
+            String contentFullURl = repo.getContents_url();
             String contentURl = contentFullURl.replace("/{+path}", "");
 
             ResponseEntity<List<Map<String, Object>>> contentResponse = restTemplate.exchange(
