@@ -17,17 +17,16 @@ import java.util.stream.Collectors;
 @Service
 public class PopularWordServiceImpl implements PopularWordService {
     private final String GITHUB_API_BASE_URL = "https://api.github.com/";
-    private final static String TOKEN_GIT_HUB = "Bearer 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";
     private static final String FILE_README_NAME = "README";
     private static final String LENGTH_WORD_REGEX_PATTERN = "\\b\\w{5,}\\b";
 
 
     @Override
-    public PopularWordDTO getPopularWordsByUrlAndCount(String url, Integer countWords) {
+    public PopularWordDTO getPopularWordsByUrlAndCount(String url, Integer countWords, String tokenGit) {
         final List<String> allFileReadmeContents = new ArrayList<>();
         final RestTemplate restTemplate = new RestTemplate();
         final HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", TOKEN_GIT_HUB);
+        headers.set("Authorization", "Bearer " + tokenGit);
         headers.setContentType(MediaType.APPLICATION_JSON);
         final HttpEntity<String> entity = new HttpEntity<>(headers);
         String gitHubApiURL = buildAPIUrlToGitHub(url);

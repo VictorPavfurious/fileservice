@@ -20,7 +20,7 @@ public class FileController {
     }
 
     @GetMapping
-    public ResponseEntity<PopularWordDTO> getPopularWords(@RequestParam String path) {
-        return ResponseEntity.ok(popularWordService.getPopularWordsByUrlAndCount(path, 3));
+    public ResponseEntity<PopularWordDTO> getPopularWords(@RequestParam String path, @RequestParam String token) {
+        return ResponseEntity.ok(popularWordService.getPopularWordsByUrlAndCount(path, 3, token));
     }
 }

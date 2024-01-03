@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface PopularWordService {
 
-    PopularWordDTO getPopularWordsByUrlAndCount(String url, Integer countWords);
+    PopularWordDTO getPopularWordsByUrlAndCount(String url, Integer countWords, String tokenGit);
 }
