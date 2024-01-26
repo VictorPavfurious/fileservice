@@ -1,4 +1,5 @@
 Program was created for parse all readme file to given path repositories. For ex. like https://github.com/spotify
+In the first step need to add your access token github to profile by key token.git.auth and then continiue 
 For the start program via Docker you should run build image first and then create container and deploy this a image to container: 
 1) docker build -t <your name image> .
 2) docker run -d --name <your name container> -p 8080:8080 <your name image>
