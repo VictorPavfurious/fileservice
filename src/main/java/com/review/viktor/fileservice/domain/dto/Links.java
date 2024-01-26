@@ -7,12 +7,10 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
-public class License {
-    private String key;
-    private String name;
-    private String spdx_id;
-    private String url;
-    private String node_id;
+@NoArgsConstructor
+public class Links {
+    private String self;
+    private String git;
+    private String html;
 }

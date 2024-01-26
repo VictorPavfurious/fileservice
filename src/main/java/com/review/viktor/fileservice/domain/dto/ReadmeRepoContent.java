@@ -7,12 +7,9 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
-public class License {
-    private String key;
-    private String name;
-    private String spdx_id;
-    private String url;
-    private String node_id;
+@NoArgsConstructor
+public class ReadmeRepoContent extends RootRepoContent {
+    private String content;
+    private String encoding;
 }

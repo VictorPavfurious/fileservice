@@ -10,9 +10,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Permissions {
-    public boolean admin;
-    public boolean maintain;
-    public boolean push;
-    public boolean triage;
-    public boolean pull;
+    private boolean admin;
+    private boolean maintain;
+    private boolean push;
+    private boolean triage;
+    private boolean pull;
 }
